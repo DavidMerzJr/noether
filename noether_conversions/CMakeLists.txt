@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
 project(noether_conversions)
 
 find_package(catkin REQUIRED COMPONENTS
-  cmake_modules
   eigen_conversions
   geometry_msgs
   tf

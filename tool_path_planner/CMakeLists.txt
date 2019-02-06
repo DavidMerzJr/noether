@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(tool_path_planner)
 find_package(catkin REQUIRED COMPONENTS
-  cmake_modules
   eigen_conversions
   geometry_msgs
   noether_msgs

@@ -10,7 +10,6 @@ include(${VTK_USE_FILE})
 
 find_package(catkin REQUIRED COMPONENTS
   actionlib
-  cmake_modules
   mesh_segmenter
   noether_conversions
   noether_msgs

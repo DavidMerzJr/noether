@@ -6,7 +6,6 @@ add_compile_options(-std=c++14)
 project(vtk_viewer)
 
 find_package(catkin REQUIRED COMPONENTS
-  cmake_modules
   rosconsole
 )
 
