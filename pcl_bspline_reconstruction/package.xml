@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pcl_bspline_reconstruction</name>
+  <version>0.1.0</version>
+  <description>The pcl_bspline_reconstruction package</description>
+  <maintainer email="levi.armstrong@swri.org">Levi Armstrong</maintainer>
+  <license>Apache 2.0</license>
+  <author >Levi Armstrong</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>libconsole-bridge-dev</depend>
+  <depend>pcl</depend>
+  <depend>vtk</depend>
+
+</package>
