@@ -12,14 +12,9 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>cmake_modules</build_depend>
 
-  <depend>actionlib</depend>
-  <depend>mesh_segmenter</depend>
-  <depend>noether_conversions</depend>
   <depend>noether_msgs</depend>
-  <depend>path_sequence_planner</depend>
-  <depend>pcl_conversions</depend>
+  <depend>pcl_bspline_reconstruction</depend>
+  <depend>robust_edge_extraction</depend>
   <depend>roscpp</depend>
-  <depend>tool_path_planner</depend>
-  <depend>vtk_viewer</depend>
 
 </package>

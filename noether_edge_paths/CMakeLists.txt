@@ -8,8 +8,12 @@ project(noether_edge_paths)
 find_package(VTK 7.1 REQUIRED NO_MODULE)
 include(${VTK_USE_FILE})
 
+find_package(PCL 1.9 REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS
   noether_msgs
+  pcl_bspline_reconstruction
+  robust_edge_extraction
   roscpp
 )
 
@@ -17,10 +21,14 @@ catkin_package(
   INCLUDE_DIRS
     include
   LIBRARIES
+    noether_edge_paths
   CATKIN_DEPENDS
     noether_msgs
+    pcl_bspline_reconstruction
+    robust_edge_extraction
     roscpp
   DEPENDS
+    PCL
     VTK
 )
 
@@ -34,6 +42,7 @@ add_library(noether_edge_paths
 )
 target_link_libraries(noether_edge_paths
   ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 #############

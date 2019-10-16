@@ -18,7 +18,6 @@ if(NOT TARGET OpenMP::OpenMP_CXX)
 
 endif()
 
-
 catkin_package(
 #  INCLUDE_DIRS
 #  LIBRARIES
@@ -61,6 +60,28 @@ target_include_directories(${PROJECT_NAME}_demo PUBLIC
 target_include_directories(${PROJECT_NAME}_demo SYSTEM PUBLIC
     ${PCL_INCLUDE_DIRS})
 
-install(TARGETS ${PROJECT_NAME} DESTINATION lib)
-install(TARGETS ${PROJECT_NAME}_demo DESTINATION bin)
+#install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+#install(TARGETS ${PROJECT_NAME}_demo DESTINATION bin)
 #install(FILES package.xml DESTINATION share/${PROJECT_NAME})
+
+# Mark cpp header files for installation
+install(DIRECTORY include/${PROJECT_NAME}
+  DESTINATION include
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".svn" EXCLUDE
+ )
+
+# Mark executables and/or libraries for installation
+install(
+  TARGETS
+    ${PROJECT_NAME}
+    ${PROJECT_NAME}_demo
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(
+  DIRECTORY data
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
