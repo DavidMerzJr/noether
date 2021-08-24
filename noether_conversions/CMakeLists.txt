@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(VTK 7.1 REQUIRED NO_MODULE)
 include(${VTK_USE_FILE})
+message(STATUS "noether_conversions found VTK ${VTK_VERSION}")
 
 find_package(Eigen3 REQUIRED)
 

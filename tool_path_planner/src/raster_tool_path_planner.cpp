@@ -248,7 +248,7 @@ namespace tool_path_planner
     {
       int num_obj = debug_viewer_.getNumberOfDisplayObjects() - 1;
       for(int i = 0; i < num_obj; ++i)
-      debug_viewer_.removeObjectDisplay(debug_viewer_.getNumberOfDisplayObjects() - 1);
+        debug_viewer_.removeObjectDisplay(debug_viewer_.getNumberOfDisplayObjects() - 1);
     }
 
 

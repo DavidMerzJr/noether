@@ -7,6 +7,7 @@ project(noether_examples)
 
 find_package(VTK 7.1 REQUIRED NO_MODULE)
 include(${VTK_USE_FILE})
+message(STATUS "noether_examples found VTK ${VTK_VERSION}")
 
 find_package(catkin REQUIRED COMPONENTS
   actionlib

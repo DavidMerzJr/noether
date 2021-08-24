@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-## Compile as C++14, 
+## Compile as C++14,
 add_compile_options(-std=c++14)
 
 project(path_sequence_planner)
 
 find_package(VTK 7.1 REQUIRED NO_MODULE)
 include(${VTK_USE_FILE})
+message(STATUS "path_sequence_planner found VTK ${VTK_VERSION}")
 
 find_package(catkin REQUIRED COMPONENTS
     tool_path_planner

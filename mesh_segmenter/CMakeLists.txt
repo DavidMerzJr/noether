@@ -6,6 +6,7 @@ add_compile_options(-std=c++14)
 
 find_package(VTK 7.1 REQUIRED NO_MODULE)
 include(${VTK_USE_FILE})
+message(STATUS "mesh_segmenter found VTK ${VTK_VERSION}")
 
 find_package(catkin REQUIRED)
 
