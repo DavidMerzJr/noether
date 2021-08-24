@@ -8,6 +8,10 @@ project(noether)
 find_package(VTK 7.1 REQUIRED NO_MODULE)
 include(${VTK_USE_FILE})
 
+find_package(PCL 1.8 REQUIRED)
+add_definitions(${PCL_DEFINITIONS})
+add_compile_options(${PCL_COMPILE_OPTIONS})
+
 find_package(catkin REQUIRED COMPONENTS
   actionlib
   cmake_modules
@@ -36,9 +40,10 @@ catkin_package(
     vtk_viewer
   DEPENDS
     VTK
+    PCL
 )
 
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
 
 add_executable(surface_raster_planner_server
   src/surface_raster_planner_server.cpp
@@ -46,6 +51,7 @@ add_executable(surface_raster_planner_server
 target_link_libraries(surface_raster_planner_server
   ${catkin_LIBRARIES}
   ${VTK_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 add_executable(surface_raster_planner_application
@@ -54,6 +60,7 @@ add_executable(surface_raster_planner_application
 target_link_libraries(surface_raster_planner_application
   ${catkin_LIBRARIES}
   ${VTK_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 add_executable(segmentation_server
@@ -62,6 +69,7 @@ add_executable(segmentation_server
 target_link_libraries(segmentation_server
   ${catkin_LIBRARIES}
   ${VTK_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 #############

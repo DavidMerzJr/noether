@@ -15,6 +15,7 @@ include(${VTK_USE_FILE})
 
 find_package(PCL 1.8 REQUIRED)
 add_definitions(${PCL_DEFINITIONS})
+add_compile_options(${PCL_COMPILE_OPTIONS})
 
 find_package(Eigen3 REQUIRED)
 
