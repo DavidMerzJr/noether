@@ -33,6 +33,7 @@ struct DirectionGenerator
 {
   virtual ~DirectionGenerator() = default;
   virtual Eigen::Vector3d generate(const pcl::PolygonMesh& mesh) const = 0;
+  virtual std::unique_ptr<DirectionGenerator> clone() const = 0;
 };
 
 /**
@@ -42,6 +43,7 @@ struct OriginGenerator
 {
   virtual ~OriginGenerator() = default;
   virtual Eigen::Vector3d generate(const pcl::PolygonMesh& mesh) const = 0;
+  virtual std::unique_ptr<OriginGenerator> clone() const = 0;
 };
 
 /**
@@ -57,6 +59,10 @@ public:
 
   ToolPaths plan(const pcl::PolygonMesh& mesh) const override final;
 
+  void setPointSpacing(const double& point_spacing);
+  void setLineSpacing(const double& line_spacing);
+  void setMinHoleSize(const double& min_hole_size);
+
 protected:
   /**
    * @brief Implementation of the tool path planning capability
@@ -68,14 +74,15 @@ protected:
   std::unique_ptr<DirectionGenerator> dir_gen_;
   std::unique_ptr<OriginGenerator> origin_gen_;
 
-private:
   /** @brief Distance between waypoints on the same raster line (m) */
-  double point_spacing;
+  double point_spacing_;
   /** @brief Distance between raster lines */
-  double line_spacing;
+  double line_spacing_;
   /** @brief Minimum size of hole in a mesh for which the planner should split a raster line that
    * crosses over the hole into multiple segments */
-  double min_hole_size;
+  double min_hole_size_;
+
+private:
 };
 
 /**
@@ -84,6 +91,11 @@ private:
  */
 struct RasterPlannerFactory : public ToolPathPlannerFactory
 {
+  /** @brief Direction generator to be copied to created planners */
+  std::unique_ptr<DirectionGenerator> dir_gen;
+  /** @brief Origin generator to be copied to created planners */
+  std::unique_ptr<OriginGenerator> origin_gen;
+
   /** @brief Distance between waypoints on the same raster line (m) */
   double point_spacing;
   /** @brief Distance between raster lines */
