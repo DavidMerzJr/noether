@@ -7,7 +7,7 @@ extract_package_metadata(pkg)
 project(${pkg_extracted_name} VERSION ${pkg_extracted_version} LANGUAGES CXX)
 
 find_package(Eigen3 REQUIRED)
-find_package(PCL 1.9 REQUIRED COMPONENTS common)
+find_package(PCL 1.9 REQUIRED COMPONENTS common surface)
 
 find_package(VTK REQUIRED NO_MODULE)
 if(VTK_FOUND AND ("${VTK_VERSION}" VERSION_LESS 7.1))
